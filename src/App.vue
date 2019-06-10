@@ -1,29 +1,43 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <tc-header></tc-header>
+        <main>
+            <router-view/>
+        </main>
+        <tc-footer></tc-footer>
     </div>
-    <router-view/>
-  </div>
 </template>
+<script>
+    import TcFooter from "./components/TcFooter"
+    import TcHeader from "./components/TcHeader"
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+    export default {
+        name: 'app',
+        components: {
+            TcHeader,
+            TcFooter
+        }
     }
-  }
-}
+</script>
+<style lang="scss">
+    #app {
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+        height: 100%;
+        background: #EFEFF4;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        main {
+            flex: 1;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+        }
+
+    }
 </style>
