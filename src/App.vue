@@ -2,7 +2,9 @@
     <div id="app">
         <tc-header></tc-header>
         <main>
-            <router-view/>
+            <!--<keep-alive>-->
+                <router-view/>
+            <!--</keep-alive>-->
         </main>
         <tc-footer></tc-footer>
     </div>
@@ -16,7 +18,8 @@
         components: {
             TcHeader,
             TcFooter
-        }
+        },
+
     }
 </script>
 <style lang="scss">
@@ -26,12 +29,11 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-        height: 100%;
         background: #EFEFF4;
-
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        height: 100%;
         main {
             flex: 1;
             overflow-x: hidden;

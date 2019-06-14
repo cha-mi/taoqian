@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <div v-for="(item,i) in tab" :key="i" @click="toggleTab(i)">
+        <div v-for="(item,i) in tab" :key="i" @click="toggleTab(i)" :class="{active:$route.name==item.url}">
             <i :class="item.icon"></i>
             <span v-text="item.name"></span>
         </div>
@@ -34,14 +34,17 @@
                         url: 'my',
                         title:3
                     }
-                ]
+                ],
+                index:0
             }
         },
         methods:{
             toggleTab(index){
+                // console.log(event.currentTarget)
                 this.$router.push({
                     name: this.tab[index].url
                 })
+                this.index=index
                 this.$store.state.headerShow=this.tab[index].title
             }
         }
@@ -69,6 +72,9 @@
             span {
                 font-size: 12px;
             }
+        }
+        .active{
+            color: #007aff;
         }
     }
 </style>

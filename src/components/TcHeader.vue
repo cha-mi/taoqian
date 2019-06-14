@@ -1,16 +1,28 @@
 <template>
     <header class="top-header">
-        <div class="search mui-search" v-if="this.$store.state.headerShow===0">
+        <div class="search mui-search" v-if="$route.name==url[0]">
             <i class="el-icon-search"></i><input type="text" placeholder="请输入搜索内容">
         </div>
-        <div class="search mui-search" v-if="this.$store.state.headerShow===1" style="background: transparent;">
-            贷款产品
+        <div class="search mui-search others" v-else-if="$route.name==url[1]" style="background: transparent;">
+            <i class="el-icon-arrow-left back" @click="goBack"></i>贷款产品
         </div>
-        <div class="search mui-search" v-if="this.$store.state.headerShow===2" style="background: transparent;">
-            发现
+        <div class="search mui-search others" v-else-if="$route.name==url[2]" style="background: transparent;">
+            <i class="el-icon-arrow-left back" @click="goBack"></i>发现
         </div>
-        <div class="search mui-search" v-if="this.$store.state.headerShow===3" style="background: transparent;">
-            我的
+        <div class="search mui-search others" v-else-if="$route.name==url[3]" style="background: transparent;">
+            <i class="el-icon-arrow-left back" @click="goBack"></i>我的
+        </div>
+        <div class="search mui-search others" v-else-if="$route.name==url[4]" style="background: transparent;">
+            <i class="el-icon-arrow-left back" @click="goBack"></i>
+        </div>
+        <div class="search mui-search others" v-else-if="$route.name==url[5]" style="background: transparent;">
+            <i class="el-icon-arrow-left back" @click="goBack"></i>
+        </div>
+        <div class="search mui-search others" v-else-if="$route.name==url[6]" style="background: transparent;">
+           登录
+        </div>
+        <div class="search mui-search others" v-else-if="$route.name==url[7]" style="background: transparent;">
+            注册
         </div>
     </header>
 </template>
@@ -19,9 +31,20 @@
 
     export default {
         name: "TcHeader",
-        created(){
+        data(){
+            return{
+                url:['home','list','find','my','newsdetails','dkdetails','tclogin','tcregister']
+            }
+        },
+        created() {
             console.log(this.$store.state.headerShow)
         },
+        methods: {
+            goBack() {
+                this.$router.back(-1)
+                // console.log(1111)
+            }
+        }
     }
 </script>
 
@@ -52,6 +75,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
             input {
                 text-align: center;
                 background: transparent;
@@ -64,6 +88,9 @@
                     color: white;
                 }
             }
+        }
+        .others{
+            justify-content: space-between;
         }
     }
 </style>
