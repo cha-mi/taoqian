@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import Cookies from 'js-cookie'
+    // import Cookies from 'js-cookie'
     export default {
         name: "My",
         data(){
@@ -15,12 +15,14 @@
             }
         },
         mounted(){
-            console.log(this.$router)
-
         },
         methods:{
             outlogin(){
-                Cookies.remove('username')
+                // Cookies.remove('username')
+                window.sessionStorage.removeItem('userKey')
+                this.$router.push({
+                    path:'/tclogin'
+                })
             }
         }
     }

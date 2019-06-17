@@ -91,7 +91,7 @@
             async getDetails(id) {
                 let data = await axios({
                     method: 'post',
-                    url: 'http://localhost:3000/dklist/init',
+                    url: 'http://106.14.81.245:3000/dklist/dkinit',
                     data: {
                         _id: id
                     }
@@ -108,33 +108,33 @@
 
 <style lang="scss" scoped>
     .monitor {
-        margin: 20px auto;
+        margin: 0.2rem  /* 20/100 */ auto;
         width: 90%;
-        height: 220px;
+        height: 2.2rem  /* 220/100 */;
         background: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 0 4px rgba(27, 110, 245, 0.4);
-        padding-top: 28px;
-        padding-left: 15px;
-        padding-right: 15px;
+        border-radius: 0.1rem  /* 10/100 */;
+        box-shadow: 0 0 0.04rem  /* 4/100 */ rgba(27, 110, 245, 0.4);
+        padding-top: 0.28rem  /* 28/100 */;
+        padding-left: 0.15rem  /* 15/100 */;
+        padding-right: 0.15rem  /* 15/100 */;
         position: relative;
         .info {
             display: flex;
             width: 100%;
             justify-content: left;
             overflow: hidden;
-            margin-bottom: 8px;
+            margin-bottom: 0.08rem  /* 8/100 */;
             background-color: #fff;
             background-size: 5%;
             background-repeat: no-repeat;
             background-position: 97% center;
-            border-radius: 5px;
+            border-radius: 0.05rem  /* 5/100 */;
             padding-top: 0;
             text-align: left;
             .left {
-                width: 70px;
-                height: 66px;
-                margin-right: 15px;
+                width: 0.7rem  /* 70/100 */;
+                height: 0.66rem  /* 66/100 */;
+                margin-right: 0.15rem  /* 15/100 */;
                 img {
                     width: 100%;
                     height: 100%;
@@ -144,9 +144,9 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                padding: 5px 0;
+                padding: 0.05rem  /* 5/100 */ 0;
                 .desc, .label {
-                    font-size: 12px;
+                    font-size: 0.12rem  /* 12/100 */;
                 }
                 .quota {
                     color: red;
@@ -157,18 +157,18 @@
 
     .infoBox {
         display: flex;
-        font-size: 14px;
+        font-size: 0.14rem  /* 14/100 */;
         justify-content: space-between;
-        margin: 22px 0;
+        margin: 0.22rem  /* 22/100 */ 0;
         .orange {
             color: orange;
         }
     }
 
     .tip {
-        height: 25px;
-        line-height: 25px;
-        font-size: 12px;
+        height: 0.25rem  /* 25/100 */;
+        line-height: 0.25rem  /* 25/100 */;
+        font-size: 0.12rem  /* 12/100 */;
         background: #FFF9F0;
         text-align: left;
         color: orange;
@@ -178,46 +178,46 @@
         display: block;
         width: 68%;
         color: #fff;
-        padding: .6rem 0;
-        border-radius: 40px;
+        padding: .1rem 0;
+        border-radius: 0.4rem  /* 40/100 */;
         position: absolute;
-        bottom: -1rem;
+        bottom: -0.12rem;
         z-index: 99;
         left: 16%;
-        box-shadow: 0 2px 4px rgba(15, 91, 213, 0.46);
+        box-shadow: 0 0.02rem  /* 2/100 */ 0.04rem  /* 4/100 */ rgba(15, 91, 213, 0.46);
         background-color: #1A6CF0;
     }
 
     #requirement {
-        margin-top: 40px;
+        margin-top: 0.4rem  /* 40/100 */;
         text-align: left;
         .title {
             width: 100%;
-            height: 40px;
-            line-height: 40px;
+            height: 0.4rem  /* 40/100 */;
+            line-height: 0.4rem  /* 40/100 */;
             background: #f7f7f7;
         }
         table {
-            border-spacing: 20px 15px;
+            border-spacing: 0.2rem  /* 20/100 */ 0.15rem  /* 15/100 */;
             max-width: 100%;
             border-collapse: separate;
-            font-size: 12px;
+            font-size: 0.12rem  /* 12/100 */;
             background: #ffffff;
             tr {
                 & > td:nth-of-type(1) {
-                    width: 64px;
+                    width: 0.64rem  /* 64/100 */;
                 }
             }
             .data {
                 span {
-                    margin-right: 8px;
+                    margin-right: 0.08rem  /* 8/100 */;
                     i {
                         display: inline-block;
-                        width: 12px;
-                        height: 12px;
+                        width: 0.12rem  /* 12/100 */;
+                        height: 0.12rem  /* 12/100 */;
                         border-radius: 50%;
                         text-align: center;
-                        margin-right: 5px;
+                        margin-right: 0.05rem  /* 5/100 */;
                     }
                 }
             }

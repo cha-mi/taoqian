@@ -1,11 +1,11 @@
 <template>
     <div class="news">
-        <div class="newsHead">
+        <div class="newsHead" @click="goFind">
             <span>金融新闻</span>
             <i class="el-icon-d-arrow-right"></i>
         </div>
         <ul class="newList">
-            <li v-for="(item,i) in msg[0]" :key="i" @click="goDetails(item.url)">
+            <li v-for="(item,i) in msg" :key="i" @click="goDetails(item.url)">
                 <div class="imgBox">
                     <img :src="item.pic" alt="">
                 </div>
@@ -33,15 +33,15 @@
             async getNewsList() {
                 let data = await axios({
                     method: 'post',
-                    url: 'http://localhost:3000/news/init',
+                    url: 'http://106.14.81.245:3000/news/sec',
                     data: {
+                        appkey: '4840ac287b262400',
                         channel:'财经',
-                        page:'4',
-                        pageSize:'5'
+                        num:'4',
+                        start:'1'
                     }
                 });
-                this.msg.push(data.data.data)
-                console.log(this.msg)
+                this.msg=JSON.parse(data.data).result.list
             },
             goDetails(url){
                 this.$router.push({
@@ -49,6 +49,11 @@
                     query: {
                         id: url
                     }
+                })
+            },
+            goFind(){
+                this.$router.push({
+                    path:'/find'
                 })
             }
         },
@@ -60,44 +65,44 @@
 
 <style lang="scss" scoped>
     .newsHead {
-        height: 40px;
+        height: 0.4rem  /* 40/100 */;
         display: flex;
         justify-content: space-between;
         align-items: center;
         background: #fff;
-        padding: 10px;
-        border-bottom: 1px solid #eee;
+        padding: 0.1rem  /* 10/100 */;
+        border-bottom: 0.01rem  /* 1/100 */ solid #eee;
     }
 
     .newList {
         background: #fff;
         li {
-            margin-bottom: 5px;
+            margin-bottom: 0.05rem  /* 5/100 */;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px;
+            padding: 0.1rem  /* 10/100 */;
             .imgBox {
-                width: 100px;
-                height: 72px;
-                margin-right: 8px;
+                width: 1rem  /* 100/100 */;
+                height: 0.72rem  /* 72/100 */;
+                margin-right: 0.08rem  /* 8/100 */;
                 img {
                     width: 100%;
                     height: 100%;
                 }
             }
             .content {
-                height: 72px;
-                width: 250px;
+                height: 0.72rem  /* 72/100 */;
+                width: 2.5rem  /* 250/100 */;
                 text-align: left;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 .title {
-                    font-size: 14px;
+                    font-size: 0.14rem  /* 14/100 */;
                 }
                 .other {
-                    font-size: 12px;
+                    font-size: 0.12rem  /* 12/100 */;
                     color: #888;
                 }
             }

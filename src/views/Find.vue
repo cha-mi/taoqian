@@ -1,5 +1,5 @@
 <template>
-    <div class="news">
+    <div class="news" v-loading.fullscreen.lock="this.$store.state.loading">
         <div class="newsNav">
             <el-menu class="el-menu-demo" mode="horizontal" :default-active="activeIndex" @select="handleSelect">
                 <el-menu-item index="1">贷款攻略</el-menu-item>
@@ -7,8 +7,9 @@
                 <el-menu-item index="3">活动福利</el-menu-item>
             </el-menu>
         </div>
-        <ul class="newList"  v-infinite-scroll="load" infinite-scroll-disabled="busy" infinite-scroll-throttle-delay="1000">
-            <li v-for="(item,i) in msg" :key="i" @click="goDetails(item.url)">
+        <ul class="newList" v-infinite-scroll="load" infinite-scroll-disabled="busy"
+            infinite-scroll-throttle-delay="1000">
+            <li v-for="(item,i) in msg" :key="i" @click="goDetails(item.content)">
                 <div class="imgBox">
                     <img :src="item.pic" alt="">
                 </div>
@@ -29,47 +30,55 @@
     import axios from 'axios'
     import infiniteScroll from 'vue-infinite-scroll'
 
+    import qs from 'qs'
+
     export default {
         name: "Find",
         data() {
             return {
                 activeIndex: '1',
                 msg: [],
-                busy:false,
+                busy: false,
+                type: ['财经', '科技', '股票'],
+                page: 1,
+                resType: ''
             }
         },
         methods: {
             handleSelect(key) {
                 // this.getList(6,key)
-                console.log(key)
-                if (key == 1) {
-                    this.getAllNewsList('财经', 4, 8)
-                } else if (key == 2) {
-                    this.getAllNewsList('科技', 4, 8)
-                } else if (key == 3) {
-                    this.getAllNewsList('股票', 4, 8)
-                }
+                this.msg=[]
+                this.resType = this.type[key - 1]
+                this.getAllNewsList(this.resType, 8, this.page)
             },
-            async getAllNewsList(channel, page, pageSize) {
+            async getAllNewsList(channel, num, start) {
+                let obj = {
+                    appkey: '4840ac287b262400',
+                    channel,
+                    num,
+                    start
+                }
+                let str = qs.stringify(obj);
+                this.$store.state.loading++
                 let data = await axios({
                     method: 'post',
-                    url: 'http://localhost:3000/news/init',
-                    data: {
-                        channel,
-                        page,
-                        pageSize
-                    }
+                    url: 'http://106.14.81.245:3000/news/sec',
+                    data: str
                 });
+                this.$store.state.loading--
                 // data.data.data.forEach((item)=>{
                 //     this.msg.push(item)
                 // })
-                this.msg=data.data.data
-                console.log(this.msg)
+                let test = JSON.parse(data.data).result.list
+                test.forEach((item => {
+                    this.msg.push(item)
+                }))
             },
-            load(){
-                console.log(`666`)
+            load() {
+                this.page++
+                this.getAllNewsList(this.resType, 8, this.page)
             },
-            goDetails(url){
+            goDetails(url) {
                 this.$router.push({
                     path: '/newsdetails',
                     query: {
@@ -77,11 +86,12 @@
                     }
                 })
             }
-        },
-        mounted() {
-            this.getAllNewsList('财经', 4, 8)
-        },
-        directives:{infiniteScroll},
+        }
+        ,
+        directives: {
+            infiniteScroll
+        }
+        ,
     }
 </script>
 
@@ -91,46 +101,57 @@
         .newsNav {
             position: fixed;
             width: 100%;
-            /*margin-top: 40px;*/
             ul {
                 display: flex;
                 justify-content: space-between;
                 li {
-                    height: 50px;
-                    line-height: 50px;
+                    height: 0.5rem /* 50/100 */
+                ;
+                    line-height: 0.5rem /* 50/100 */
+                ;
                 }
             }
         }
         .newList {
-            margin-top: 50px;
+            margin-top: 0.5rem /* 50/100 */
+        ;
             background: #fff;
             li {
-                margin-bottom: 5px;
+                margin-bottom: 0.05rem /* 5/100 */
+            ;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 10px;
+                padding: 0.1rem /* 10/100 */
+            ;
                 .imgBox {
-                    width: 100px;
-                    height: 72px;
-                    margin-right: 8px;
+                    width: 1rem /* 100/100 */
+                ;
+                    height: 0.72rem /* 72/100 */
+                ;
+                    margin-right: 0.08rem /* 8/100 */
+                ;
                     img {
                         width: 100%;
                         height: 100%;
                     }
                 }
                 .content {
-                    height: 72px;
-                    width: 250px;
+                    height: 0.72rem /* 72/100 */
+                ;
+                    width: 2.5rem /* 250/100 */
+                ;
                     text-align: left;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
                     .title {
-                        font-size: 14px;
+                        font-size: 0.14rem /* 14/100 */
+                    ;
                     }
                     .other {
-                        font-size: 12px;
+                        font-size: 0.12rem /* 12/100 */
+                    ;
                         color: #888;
                     }
                 }

@@ -44,16 +44,16 @@
 
 <style lang="scss" scoped>
     .daytop {
-        margin-top: 15px;
-        height: 52px;
-        background: url(../../public/img/banner/kb.png) left 20px center no-repeat white;
-        background-size: 30px;
-        /*padding: 10px 0;*/
+        margin-top: 0.15rem  /* 15/100 */;
+        height: 0.52rem  /* 52/100 */;
+        background: url(../../public/img/banner/kb.png) left 0.2rem  /* 20/100 */ center no-repeat white;
+        background-size: 0.3rem  /* 30/100 */;
+
         .news {
             width: 80%;
             float: right;
             text-align: left;
-            font-size: 12px;
+            font-size: 0.12rem  /* 12/100 */;
             li{
                 display: flex;
                 flex-direction: column;

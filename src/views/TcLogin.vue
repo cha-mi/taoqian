@@ -20,7 +20,7 @@
 
 <script>
     import axios from 'axios'
-    import Cookies from 'js-cookie'
+    // import Cookies from 'js-cookie'
     export default {
         name: "TcLogin",
         data(){
@@ -41,8 +41,9 @@
                       }
                   })
                 this.$store.state.loading-=1
-                if (data.data=='1'){
-                    Cookies.set('username',this.user)
+                if (data.data===1){
+                    window.sessionStorage.setItem('userKey', this.user);
+                    // Cookies.set('username',this.user)
                     this.$router.push({
                         path:'/my'
                     })
@@ -61,9 +62,9 @@
 
 <style lang="scss" scoped>
     .loginList{
-        padding: 10px;
+        padding: 0.1rem  /* 10/100 */;
         li{
-            margin-top: 15px;
+            margin-top: 0.15rem  /* 15/100 */;
         }
     }
 </style>

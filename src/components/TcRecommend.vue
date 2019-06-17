@@ -69,24 +69,24 @@
 <style lang="scss" scoped>
     ul {
         /*display: table;*/
-        padding: 0 10px;
+        padding: 0 0.1rem  /* 10/100 */;
         overflow-x: auto;
         li {
-            padding-right: 15px;
+            padding-right: 0.15rem  /* 15/100 */;
             display: table-cell;
             a {
                 display: block;
-                border-radius: 3px;
+                border-radius: 0.03rem  /* 3/100 */;
                 /*background: url(../../images/v5_1_1/project_picture_default.png) center center no-repeat;*/
                 background-size: 100%;
                 color: #fff;
                 text-align: center;
                 overflow: hidden;
                 img {
-                    width: 140px;
-                    height: 90px;
-                    min-width: 140px;
-                    min-height: 90px;
+                    width: 1.4rem  /* 140/100 */;
+                    height: 0.9rem  /* 90/100 */;
+                    min-width: 1.4rem  /* 140/100 */;
+                    min-height: 0.9rem  /* 90/100 */;
                     vertical-align: top;
                 }
             }

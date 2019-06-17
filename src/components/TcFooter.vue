@@ -55,7 +55,7 @@
     footer {
         display: flex;
         justify-content: space-between;
-        height: 48px;
+        height: 0.48rem  /* 48/100 */;
         background: white;
         div {
             width: 25%;
@@ -65,12 +65,12 @@
             align-items: center;
             i {
                 display: inline-block;
-                width: 25px;
-                height: 25px;
-                font-size: 25px;
+                width: 0.25rem  /* 25/100 */;
+                height: 0.25rem  /* 25/100 */;
+                font-size: 0.25rem  /* 25/100 */;
             }
             span {
-                font-size: 12px;
+                font-size: 0.12rem  /* 12/100 */;
             }
         }
         .active{

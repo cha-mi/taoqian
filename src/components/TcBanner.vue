@@ -33,7 +33,7 @@
 
 <style lang="scss" scoped>
  .swiper-container{
-     height: 200px;
+     height: 2rem  /* 200/100 */;
      img{
          width: 100%;
          height: 100%;

@@ -60,9 +60,9 @@
 
 <style lang="scss" scoped>
     .loginList{
-        padding: 10px;
+        padding: 0.1rem  /* 10/100 */;
         li{
-            margin-top: 15px;
+            margin-top: 0.15rem  /* 15/100 */;
         }
     }
 </style>

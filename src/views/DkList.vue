@@ -47,7 +47,7 @@
                 this.$store.state.loading += 1;
                 let data = await axios({
                     method: 'post',
-                    url: 'http://localhost:3000/dklist/init',
+                    url: 'http://106.14.81.245:3000/dklist/dkinit',
                     data: {
                         num: this.nums,
                         page: this.pages
@@ -102,45 +102,45 @@
             display: flex;
             color: #999;
             position: fixed;
-            top: 43px;
+            top: 0.43rem  /* 43/100 */;
             left: 0;
             width: 100%;
             li {
-                height: 44px;
+                height: 0.44rem  /* 44/100 */;
                 width: 50%;
                 background: white;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 14px;
+                font-size: 0.14rem  /* 14/100 */;
             }
             & > li:nth-of-type(1) {
-                border-right: 1px solid #999;
+                border-right: 0.01rem  /* 1/100 */ solid #999;
             }
         }
         .list {
-            margin-top: 55px;
+            margin-top: 0.55rem  /* 55/100 */;
             li {
                 display: flex;
                 justify-content: center;
-                margin: 10px;
+                margin: 0.1rem  /* 10/100 */;
                 .box {
                     width: 98%;
                     background: #fff;
-                    height: 96px;
-                    border-radius: 10px;
+                    height: 0.96rem  /* 96/100 */;
+                    border-radius: 0.1rem  /* 10/100 */;
                     display: flex;
                     justify-content: left;
                     align-items: center;
-                    padding: 0 10px;
+                    padding: 0 0.1rem  /* 10/100 */;
                     background-image: url(../../public/img/zjt.png);
                     background-size: 5%;
                     background-repeat: no-repeat;
                     background-position: 97% center;
                     .leftbox {
-                        width: 66px;
-                        height: 66px;
-                        margin-right: 10px;
+                        width: 0.66rem  /* 66/100 */;
+                        height: 0.66rem  /* 66/100 */;
+                        margin-right: 0.1rem  /* 10/100 */;
                         img {
                             width: 100%;
                             height: 100%;
@@ -148,9 +148,9 @@
                     }
                     .content {
                         text-align: left;
-                        font-size: 12px;
+                        font-size: 0.12rem  /* 12/100 */;
                         p:nth-of-type(1) {
-                            font-size: 16px;
+                            font-size: 0.16rem  /* 16/100 */;
                             font-weight: bold;
                         }
                         span {
@@ -161,8 +161,8 @@
             }
         }
         .dx {
-            margin: 20px 0;
-            font-size: 12px;
+            margin: 0.2rem  /* 20/100 */ 0;
+            font-size: 0.12rem  /* 12/100 */;
         }
     }
 </style>

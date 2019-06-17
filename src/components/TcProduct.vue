@@ -49,7 +49,7 @@
             async getList(num, page) {
                 let data = await axios({
                     method: 'post',
-                    url: 'http://localhost:3000/dklist/init',
+                    url: 'http://106.14.81.245:3000/dklist/dkinit',
                     data: {
                         num,
                         page
@@ -82,18 +82,18 @@
 <style lang="scss" scoped>
     .product {
         /*background-color: #f1f6f8;*/
-        margin-bottom: 12px;
+        margin-bottom: 0.12rem  /* 12/100 */;
         .title {
-            padding-bottom: 20px;
+            padding-bottom: 0.2rem  /* 20/100 */;
             color: #212121;
             font-size: 1.1rem;
             width: 94%;
             margin: 0 auto;
-            margin-bottom: 12px;
+            margin-bottom: 0.12rem  /* 12/100 */;
         }
         & > .title {
-            padding-top: 10px;
-            padding-bottom: 10px;
+            padding-top: 0.1rem  /* 10/100 */;
+            padding-bottom: 0.1rem  /* 10/100 */;
             width: 94%;
             margin: 0 auto;
             white-space: nowrap;
@@ -103,6 +103,7 @@
             display: flex;
             -ms-flex-align: center;
             align-items: center;
+            font-size: 0.16rem;
         }
         .icon-title {
             background-position: center center;
@@ -112,35 +113,35 @@
         .icon {
             width: 1.2em;
             height: 1.2em;
-            margin-right: 10px;
+            margin-right: 0.1rem  /* 10/100 */;
         }
         li {
             width: 94%;
-            border-radius: 5px;
+            border-radius: 0.05rem  /* 5/100 */;
             margin: 0 auto;
-            box-shadow: 0 2px 5px rgba(27, 110, 245, 0.1);
-            margin-bottom: 10px;
+            box-shadow: 0 0.02rem  /* 2/100 */ 0.05rem  /* 5/100 */ rgba(27, 110, 245, 0.1);
+            margin-bottom: 0.1rem  /* 10/100 */;
             a {
                 background: #fff;
-                border-radius: 10px;
+                border-radius: 0.1rem  /* 10/100 */;
                 display: flex;
                 align-items: center;
-                padding: 10px;
+                padding: 0.1rem  /* 10/100 */;
                 text-align: left;
                 color: black;
                 .left {
-                    width: 66px;
-                    height: 66px;
-                    margin-right: 15px;
+                    width: 0.66rem  /* 66/100 */;
+                    height: 0.66rem  /* 66/100 */;
+                    margin-right: 0.15rem  /* 15/100 */;
                 }
                 .desc {
                     font-weight: bold;
-                    font-size: 12px;
+                    font-size: 0.12rem  /* 12/100 */;
                     color: #888;
-                    margin: 5px 0;
+                    margin: 0.05rem  /* 5/100 */ 0;
                 }
                 .label {
-                    font-size: 12px;
+                    font-size: 0.12rem  /* 12/100 */;
                     .quota {
                         color: red;
                     }
